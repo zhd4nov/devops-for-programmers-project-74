@@ -3,3 +3,5 @@ test:
 
 dev:
 	docker-compose up
+
+ci: test
