@@ -13,10 +13,7 @@ services:
       - "8080:8080"
     volumes:
       - ./app:/app
-    environment:
-      - NODE_ENV=development
     command: make dev
-
   caddy:
     image: caddy:latest
     ports:
