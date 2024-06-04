@@ -3,12 +3,15 @@ version: "3.7"
 
 services:
   app:
+    environment:
+      - DATABASE_HOST
+      - DATABASE_NAME
+      - DATABASE_USERNAME
+      - DATABASE_PASSWORD
     image: zhd4nov/devops-for-programmers-project-74
     build:
       context: .
       dockerfile: Dockerfile.production
-    env_file:
-      - .env
     command: sh -c "
      sleep 5 &&
      make test"
@@ -16,9 +19,11 @@ services:
       - db
 
   db:
+    environment:
+      - POSTGRES_PASSWORD
+      - POSTGRES_USER
+      - POSTGRES_DB
     image: postgres:latest
-    env_file:
-      - .env
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
