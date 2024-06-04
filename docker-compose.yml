@@ -7,23 +7,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
-    environment:
-      DATABASE_HOST: db
-      DATABASE_PORT: 5432
-      DATABASE_NAME: postgres
-      DATABASE_USERNAME: postgres
-      DATABASE_PASSWORD: postgres
     command: sh -c "
      sleep 5 &&
      make test"
     depends_on:
       - db
+
   db:
     image: postgres:latest
-    environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
