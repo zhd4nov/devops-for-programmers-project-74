@@ -15,7 +15,7 @@ Run to setup your local environment
 ```bash
 make setup # Install deps + prepare .env file
 
-# Find and fill out the .env file (example/draft) with correct variables (!)
+# Find and fill out the .env file (example/draft) with correct variables (if required)
 
 # List of required variables
 
