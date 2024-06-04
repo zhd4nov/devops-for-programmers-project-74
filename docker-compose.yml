@@ -7,6 +7,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
+    env_file:
+      - .env
     command: sh -c "
      sleep 5 &&
      make test"
@@ -15,6 +17,8 @@ services:
 
   db:
     image: postgres:latest
+    env_file:
+      - .env
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
