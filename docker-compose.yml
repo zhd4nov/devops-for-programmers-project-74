@@ -7,7 +7,7 @@ services:
       - DATABASE_HOST=${DATABASE_HOST}
       - DATABASE_NAME=${DATABASE_NAME}
       - DATABASE_USERNAME=${DATABASE_USERNAME}
-      - DATABASE_PASSWORD=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
     image: zhd4nov/devops-for-programmers-project-74
     build:
       context: .
@@ -20,9 +20,9 @@ services:
 
   db:
     environment:
-      - POSTGRES_PASSWORD=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
       - POSTGRES_USER=${DATABASE_USERNAME}
-      - POSTGRES_DB=${DATABASE_USERNAME}
+      - POSTGRES_DB=${DATABASE_NAME}
     image: postgres:latest
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
